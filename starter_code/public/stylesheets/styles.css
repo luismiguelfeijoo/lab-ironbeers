@@ -50,3 +50,10 @@ p {
   background-color: #2081c3;
   border-color: #2081c3;
 }
+
+.beer-container {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
