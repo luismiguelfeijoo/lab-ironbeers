@@ -15,13 +15,27 @@ hbs.registerPartials(__dirname + '/views/partials');
 // add the routes here
 app.get('/', (req, res) => res.render('index'));
 
-// const beers = ['apple', 'juice', '', '', '', '', '', '', '', '', ''];
+const beer = {
+  name: 'hola',
+  description: 'Chao',
+  tagline: 'hola',
+  image_url: ''
+};
 
 app.get('/beers', (req, res) => {
   punkAPI
     .getBeers(5)
     .then(beers => {
       res.render('beers', { beers });
+    })
+    .catch(error => console.log(error));
+});
+
+app.get('/random-beer', (req, res) => {
+  punkAPI
+    .getRandom()
+    .then(beers => {
+      res.render('random-beer', beers[0]);
     })
     .catch(error => console.log(error));
 });
